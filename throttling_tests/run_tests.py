@@ -53,7 +53,7 @@ thread_counts = {
     NOTE BEFORE RUNNING, manually change the o/s and p/w here depending on your branch.
 """
 
-test_codes = ["scia"]
+test_codes = ["seia", "seib", "seic", "seid"]
 
 for code in test_codes:
     
