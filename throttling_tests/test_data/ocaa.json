@@ -1,0 +1,122 @@
+[
+     {
+          "timestamp": "Wed Feb  8 00:17:48 2023",
+          "action": "check",
+          "thread_name": "thread:62a403df-4dbc-4982-93ac-2275cdcd62f2",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 0.5321502685546875,
+          "code": "ocaa",
+          "desc": "sorted sets, pc (16gb ram, 3600, 6 core), asynchronously expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 00:17:48 2023",
+          "action": "check",
+          "thread_name": "thread:772002cc-80d9-4ac4-a909-f253b91ceab6",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 7.031917572021484,
+          "code": "ocaa",
+          "desc": "sorted sets, pc (16gb ram, 3600, 6 core), asynchronously expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 00:17:48 2023",
+          "action": "check",
+          "thread_name": "thread:2556c439-dd90-479e-9ce9-c585139dd9de",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 1.5399456024169922,
+          "code": "ocaa",
+          "desc": "sorted sets, pc (16gb ram, 3600, 6 core), asynchronously expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 00:17:48 2023",
+          "action": "check",
+          "thread_name": "thread:c1c50493-bcdf-494f-9e00-c42901e0073b",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 1.9907951354980469,
+          "code": "ocaa",
+          "desc": "sorted sets, pc (16gb ram, 3600, 6 core), asynchronously expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 00:17:48 2023",
+          "action": "check",
+          "thread_name": "thread:7e199459-3f5f-4447-acf5-6201a5706b28",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 16.765356063842773,
+          "code": "ocaa",
+          "desc": "sorted sets, pc (16gb ram, 3600, 6 core), asynchronously expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 00:17:48 2023",
+          "action": "check",
+          "thread_name": "thread:42c501d8-0ae2-493f-b313-3a6db8f47c76",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 3.1080245971679688,
+          "code": "ocaa",
+          "desc": "sorted sets, pc (16gb ram, 3600, 6 core), asynchronously expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 00:17:48 2023",
+          "action": "check",
+          "thread_name": "thread:e2f202e5-9de3-4993-aa55-d500604d8ba4",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 10.41269302368164,
+          "code": "ocaa",
+          "desc": "sorted sets, pc (16gb ram, 3600, 6 core), asynchronously expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 00:17:48 2023",
+          "action": "check",
+          "thread_name": "thread:88315586-c6b6-4ec2-ae58-dcd843455bf5",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 17.35091209411621,
+          "code": "ocaa",
+          "desc": "sorted sets, pc (16gb ram, 3600, 6 core), asynchronously expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 00:17:48 2023",
+          "action": "check",
+          "thread_name": "thread:3b3fbf8e-48b9-4fe3-9a32-4bae80e57d29",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 0.7715225219726562,
+          "code": "ocaa",
+          "desc": "sorted sets, pc (16gb ram, 3600, 6 core), asynchronously expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 00:17:48 2023",
+          "action": "check",
+          "thread_name": "thread:2300e315-6cd8-4a35-a7c8-93bf9b30db73",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 10.744333267211914,
+          "code": "ocaa",
+          "desc": "sorted sets, pc (16gb ram, 3600, 6 core), asynchronously expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     }
+]
