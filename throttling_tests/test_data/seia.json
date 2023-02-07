@@ -1,0 +1,122 @@
+[
+     {
+          "timestamp": "Tue Feb  7 18:59:50 2023",
+          "action": "check",
+          "thread_name": "thread:c19c57a3-f671-4dc5-9fef-4816487e5aef",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 0.3829002380371094,
+          "code": "seia",
+          "desc": "regular sets, ec2 instance (g4dn.xlarge), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Tue Feb  7 18:59:50 2023",
+          "action": "check",
+          "thread_name": "thread:85a8db3f-746e-40b2-bc44-c19e84946dca",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 1.3506412506103516,
+          "code": "seia",
+          "desc": "regular sets, ec2 instance (g4dn.xlarge), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Tue Feb  7 18:59:50 2023",
+          "action": "check",
+          "thread_name": "thread:4db29544-7c79-4b54-9242-2ba9a583b53c",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 1.516103744506836,
+          "code": "seia",
+          "desc": "regular sets, ec2 instance (g4dn.xlarge), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Tue Feb  7 18:59:50 2023",
+          "action": "check",
+          "thread_name": "thread:687fa43f-82f0-4ea2-8c8f-50ebe325ec07",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 0.7150173187255859,
+          "code": "seia",
+          "desc": "regular sets, ec2 instance (g4dn.xlarge), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Tue Feb  7 18:59:50 2023",
+          "action": "check",
+          "thread_name": "thread:9163ba1c-8016-4d04-b736-bc75ba3004e3",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 6.755352020263672,
+          "code": "seia",
+          "desc": "regular sets, ec2 instance (g4dn.xlarge), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Tue Feb  7 18:59:50 2023",
+          "action": "check",
+          "thread_name": "thread:8ec8846f-aa98-4ee3-a9b2-741959c4ca90",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 2.580404281616211,
+          "code": "seia",
+          "desc": "regular sets, ec2 instance (g4dn.xlarge), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Tue Feb  7 18:59:50 2023",
+          "action": "check",
+          "thread_name": "thread:f10a13b1-c0d5-4f71-b7ea-f1bb3520325f",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 3.131866455078125,
+          "code": "seia",
+          "desc": "regular sets, ec2 instance (g4dn.xlarge), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Tue Feb  7 18:59:50 2023",
+          "action": "check",
+          "thread_name": "thread:48543878-7fd8-4dff-93b2-9a36f0ada3a6",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 1.010894775390625,
+          "code": "seia",
+          "desc": "regular sets, ec2 instance (g4dn.xlarge), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Tue Feb  7 18:59:50 2023",
+          "action": "check",
+          "thread_name": "thread:69a055ee-e437-4c46-ab40-e01c7d5bd5ee",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 1.352548599243164,
+          "code": "seia",
+          "desc": "regular sets, ec2 instance (g4dn.xlarge), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Tue Feb  7 18:59:50 2023",
+          "action": "check",
+          "thread_name": "thread:80594b21-105a-4c25-94e8-b42a6c36c22f",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 0.31256675720214844,
+          "code": "seia",
+          "desc": "regular sets, ec2 instance (g4dn.xlarge), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     }
+]
