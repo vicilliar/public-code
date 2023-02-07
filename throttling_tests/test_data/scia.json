@@ -1,0 +1,122 @@
+[
+     {
+          "timestamp": "Wed Feb  8 02:53:24 2023",
+          "action": "check",
+          "thread_name": "thread:a3f68e02-b811-491c-9417-887f3a6c2d25",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 1.6295909881591797,
+          "code": "scia",
+          "desc": "regular sets, pc (16gb ram, 3600, 6 core), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 02:53:24 2023",
+          "action": "check",
+          "thread_name": "thread:e08de6cc-d96b-44b4-9f2b-9bdf6c0935a5",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 4.749774932861328,
+          "code": "scia",
+          "desc": "regular sets, pc (16gb ram, 3600, 6 core), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 02:53:24 2023",
+          "action": "check",
+          "thread_name": "thread:484d9195-4101-48f6-8bc7-57a6b4362ebc",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 3.470897674560547,
+          "code": "scia",
+          "desc": "regular sets, pc (16gb ram, 3600, 6 core), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 02:53:24 2023",
+          "action": "check",
+          "thread_name": "thread:12bf8490-1626-46e6-b7da-a3f029a53d34",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 1.935720443725586,
+          "code": "scia",
+          "desc": "regular sets, pc (16gb ram, 3600, 6 core), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 02:53:24 2023",
+          "action": "check",
+          "thread_name": "thread:6de5fdd3-c1bc-468d-974d-7a472b66b127",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 4.875421524047852,
+          "code": "scia",
+          "desc": "regular sets, pc (16gb ram, 3600, 6 core), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 02:53:24 2023",
+          "action": "check",
+          "thread_name": "thread:9ad31763-d35f-4e44-b3c9-3fb38ef57128",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 1.310586929321289,
+          "code": "scia",
+          "desc": "regular sets, pc (16gb ram, 3600, 6 core), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 02:53:24 2023",
+          "action": "check",
+          "thread_name": "thread:acd01386-3393-43bd-a14a-3ffe04bfa324",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 6.06536865234375,
+          "code": "scia",
+          "desc": "regular sets, pc (16gb ram, 3600, 6 core), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 02:53:24 2023",
+          "action": "check",
+          "thread_name": "thread:0cfa8067-1bb5-4c75-9877-cd447f550b9d",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 3.379344940185547,
+          "code": "scia",
+          "desc": "regular sets, pc (16gb ram, 3600, 6 core), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 02:53:24 2023",
+          "action": "check",
+          "thread_name": "thread:abdf3a0c-25bb-429f-bbec-aa34df01cb2c",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 6.9179534912109375,
+          "code": "scia",
+          "desc": "regular sets, pc (16gb ram, 3600, 6 core), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     },
+     {
+          "timestamp": "Wed Feb  8 02:53:24 2023",
+          "action": "check",
+          "thread_name": "thread:5e532fcb-75fb-44ef-8112-44aa1b1e3125",
+          "result": "PASSED",
+          "max_threads": "10",
+          "redis_time": 10.112762451171875,
+          "code": "scia",
+          "desc": "regular sets, pc (16gb ram, 3600, 6 core), immediately expire keys",
+          "supposed_max_threads": 10,
+          "attempted_threads": 11
+     }
+]
