@@ -53,8 +53,7 @@ thread_counts = {
     NOTE BEFORE RUNNING, manually change the o/s and p/w here depending on your branch.
 """
 
-# test_codes = ["oewa", "oewb", "oewc", "oewd", "oewe", "oepa", "oepb", "oepc", "oepd", "oepe"]
-test_codes = ["ocaa", "ocab", "ocac"]
+test_codes = ["oeia", "oeib", "oeic"]
 
 for code in test_codes:
     
