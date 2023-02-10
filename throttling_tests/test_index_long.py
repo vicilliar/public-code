@@ -16,7 +16,7 @@ except:
 
 try:
     res = mq.index("throttling-index").add_documents(
-        [{"_id": str(i), "title": "garbage"} for i in range(2000)],
+        [{"_id": str(i), "title": "garbage"} for i in range(4000)],
         server_batch_size=1000
     )
     print("TEST RESULT: SUCCESS")
@@ -26,6 +26,8 @@ try:
     if "check_test_data" in res:
         print(res["check_test_data"])
     """
+
+# We need a better way to check. need to grab the status code.
 except marqo.errors.MarqoWebError:
     raise AssertionError("TEST RESULT: THROTTLED")
 

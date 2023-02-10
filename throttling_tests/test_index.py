@@ -8,14 +8,14 @@ index_settings = {
         "model": "random",
     }
 }
-
+"""
 try:
     mq.create_index("throttling-index", settings_dict=index_settings)
 except:
     pass
-
+"""
 res = mq.index("throttling-index").add_documents(
-    [{"_id": str(i), "title": "garbage"} for i in range(1000)]
+    [{"_id": str(i), "title": "garbage"} for i in range(2000)]
 )
 
 # Not throttled
