@@ -16,7 +16,7 @@ except:
 
 try:
     res = mq.index("throttling-index").add_documents(
-        [{"_id": str(i), "title": "garbage"} for i in range(1100)],
+        [{"_id": str(i), "title": "garbage"} for i in range(2000)],
         server_batch_size=1000
     )
     print("TEST RESULT: SUCCESS")
