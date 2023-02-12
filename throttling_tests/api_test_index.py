@@ -59,7 +59,7 @@ def attempt_to_index(docs):
             print_json_status("throttled")
             return -1
         else:
-            print_json_status(f"some other error. status_code: {e.type}, message: {e.message}")
+            print_json_status(f"some other error. message: {e.message}")
             return -2
 
 
