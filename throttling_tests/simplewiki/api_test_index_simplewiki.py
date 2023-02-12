@@ -76,18 +76,14 @@ data = [replace_title(d) for d in data]
 # split big ones to make it easier for users on all hardware
 data = split_big_docs(data)
 
-if len(data) >= 5:
-    data = data[:5]
-
 print(f"Process {process_num} loaded data with {len(data)} entries")
 
-"""
+
 while num_attempts <= attempt_limit:
     res = attempt_to_index(data)
     if res == 0:
         break
     
-    # Try again in 10 minutes
-    time.sleep(60 * 10)
+    # Try again in 5 minutes
+    time.sleep(60*5)
     num_attempts += 1
-"""
