@@ -49,7 +49,7 @@ def attempt_to_index(docs):
     try:
         print_json_status("starting attempt")
         
-        res = mq.index("throttling-index").add_documents(docs, device="cuda", server_batch_size=100)
+        res = mq.index("throttling-index").add_documents(docs, server_batch_size=100)
 
         print_json_status("success")
         return 0
@@ -59,7 +59,7 @@ def attempt_to_index(docs):
             print_json_status("throttled")
             return -1
         else:
-            print_json_status("some other error. reason: " + str(e))
+            print_json_status(f"some other error. status_code: {e.type}, message: {e.message}")
             return -2
 
 
