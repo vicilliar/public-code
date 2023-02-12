@@ -86,7 +86,7 @@ data = data[:200]
 data = [{"_id": str(i), "title": "random values"} for i in range(1000)]
 while num_attempts <= attempt_limit:
     res = attempt_to_index(data)
-    if res == 0 or res == -2:
+    if res == 0:
         break
     
     # Try again in 30 seconds

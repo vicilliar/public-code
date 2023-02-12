@@ -19,7 +19,7 @@ index_settings = {
 """
 
 try:
-    mq.create_index("throttling-index", model='onnx/all_datasets_v4_MiniLM-L6')
+    mq.create_index("throttling-index", model='flax-sentence-embeddings/all_datasets_v4_MiniLM-L6')
 except:
     pass
 
