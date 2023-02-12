@@ -1,0 +1,4 @@
+dump.rdb
+throttling_tests/dump.rdb
+throttling_tests/simplewiki.json
+throttling_tests/test_data/
