@@ -1,3 +1,5 @@
+# Run the command
+# sudo python3 pseudo_api_test_simplewiki.py 20 |& sudo tee test_results/simplewiki-test2.txt
 import sys
 import marqo
 import pprint
