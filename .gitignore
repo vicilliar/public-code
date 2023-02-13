@@ -1,6 +1,6 @@
 dump.rdb
 throttling_tests/dump.rdb
-throttling_tests/simplewiki.json
-throttling_tests/test_data/
+throttling_tests/test_data/*
+throttling_tests/simplewiki/test_results/*
 
 *.json
