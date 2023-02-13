@@ -45,27 +45,41 @@ def print_json_status(message):
     now = datetime.datetime.now()
     print('{"timestamp": "' + now.strftime("%Y-%m-%d %H:%M:%S") +'", "process": ' + process_num + ', "message": "' + message + '"}')
 
-def attempt_to_index(docs):
+def attempt_to_index(docs, batch_size):
     try:
-        print_json_status("starting attempt")
-        
-        res = mq.index("throttling-index").add_documents(docs, client_batch_size=24)
-
+        print_json_status(f"starting attempt")
+        print(f"Process {process_num} with {len(docs)} docs left in the queue")
+        res = mq.index("throttling-index-2").add_documents(docs[:batch_size])
+        docs = docs[batch_size:]
         print_json_status("success")
-        return 0
+        return docs
     
     except Exception as e:
         if e.status_code == 429:
             print_json_status("throttled")
-            return -1
         else:
-            print_json_status(f"some other error. message: {e.message}")
-            return -2
+            print_json_status(f"error code: {e.status_code}")
+    
+    finally:
+        return docs
+
+def add_ids(docs_to_index):
+    for i in range(len(docs_to_index)):
+        docs_to_index[i]['_id'] = str(hash(json.dumps(docs_to_index[i])))
+    
+    return docs_to_index
 
 process_num = sys.argv[1]
 mq = marqo.Client(url='http://localhost:8882')
-num_attempts = 0
-attempt_limit = 50
+num_attempts = 1
+batch_size = 24
+t0 = time.time()
+
+"""
+Change these values before running large test
+"""
+attempt_limit = 5000       # change to 1000
+small_sample_size = -1      # change to -1
 
 dataset_file = f"json_files/simplewiki{process_num}.json"
 
@@ -75,15 +89,32 @@ data = read_json(dataset_file)
 data = [replace_title(d) for d in data]
 # split big ones to make it easier for users on all hardware
 data = split_big_docs(data)
+data = add_ids(data)
 
-print(f"Process {process_num} loaded data with {len(data)} entries")
+if small_sample_size != -1 and len(data) >= small_sample_size:
+    data = data[:small_sample_size]
 
+total_doc_num = len(data)
+print(f"Process {process_num} loaded data with {total_doc_num} entries")
 
 while num_attempts <= attempt_limit:
-    res = attempt_to_index(data)
-    if res == 0:
+    data = attempt_to_index(data, batch_size)
+    if len(data) == 0:
         break
     
-    # Try again in 5 minutes
-    time.sleep(60*5)
+    # Try again in 10 seconds
+    time.sleep(10)
     num_attempts += 1
+
+t1 = time.time()
+time_taken = f"{(t1-t0):.3f}"
+now = datetime.datetime.now()
+docs_indexed = total_doc_num - len(data)
+
+# Final results
+print('{"process": ' + str(process_num) + ', ' + \
+'"message": "summary", ' + \
+'"timestamp": "'  + now.strftime("%Y-%m-%d %H:%M:%S") + '", ' + \
+'"docs_indexed": "'  +  str(docs_indexed) + '/' + str(total_doc_num) + '", ' + \
+'"attempts_made": '  + str(num_attempts) + ', ' + \
+'"time taken": "'  + str(time_taken) + '"}' )
