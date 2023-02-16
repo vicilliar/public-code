@@ -17,7 +17,7 @@ except:
 
 # run subprocess (100 threads or so)
 std_output = subprocess.run(['seq 1 ' + str(thread_attempts) + ' | xargs -I% -n1 -P' + str(thread_attempts) \
-+ ' python3 api_test_index_simplewiki.py %'], shell=True, stdout=subprocess.PIPE).stdout.decode()
++ ' python3 api_test_index.py %'], shell=True, stdout=subprocess.PIPE).stdout.decode()
 
 # catch the output (json format).
 # reads in the order it got to the terminal
