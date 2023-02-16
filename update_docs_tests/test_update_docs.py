@@ -49,6 +49,7 @@ res = mq.index("update-index").update_documents(
     docs,
     non_tensor_fields=["color", "fruit", "name"],
     client_batch_size=client_batch_size,
+    auto_refresh=False,
     device="cpu"
 )
 
