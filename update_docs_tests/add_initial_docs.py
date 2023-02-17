@@ -13,6 +13,7 @@ docs = [
     {
         "_id": str(i),
         "initial_field": str(i)
+        # Add 1 random vector (inference doesn't matter), really large
     }
     for i in range(num_docs)
 ]

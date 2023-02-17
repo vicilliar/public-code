@@ -30,6 +30,11 @@ docs = [
         "color": colors[i % 5],
         "fruit": fruits[i % 5],
         "name": names[i % 5],
+        "color-tensor": colors[i % 5],
+        "fruit-tensor": fruits[i % 5],
+        "name-tensor": names[i % 5],
+        # Add 18 fields
+        # 1 field is a vector field
     }
     for i in range(num_docs)
 ]
@@ -45,12 +50,13 @@ except:
 # Set refresh to False
 # Client batched
 t0 = time.time()
-res = mq.index("update-index").update_documents(
+res = mq.index("update-index").add_documents(
     docs,
     non_tensor_fields=["color", "fruit", "name"],
     client_batch_size=client_batch_size,
     auto_refresh=False,
-    device="cpu"
+    device="cpu",
+    use_existing_vectors=True
 )
 
 # Record time taken for updating + how many. 
