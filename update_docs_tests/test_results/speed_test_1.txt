@@ -126,15 +126,126 @@ Test total time taken: 4466.847s
 - Script used: test_update_docs.py
 - 2/20/23, 6:30pm
 
+CLIENT 0
+Test: UPDATE DOCS. Number of docs: 250000. Batch size: 100.
+Summary for time per doc update [in ms]
+count    2500.000000
+mean       11.949579
+std         2.371995
+min         3.217453
+25%        10.539413
+50%        11.933418
+75%        13.384625
+90%        14.782196
+max        21.669960
+Name: time_per_doc, dtype: float64
+==============================
+Summary for total batch time (batches of 100 docs) [in ms]
+count    2500.000000
+mean     1194.957878
+std       237.199506
+min       321.745295
+25%      1053.941307
+50%      1193.341759
+75%      1338.462482
+90%      1478.219578
+max      2166.995961
+Name: total_time, dtype: float64
+Test total time taken: 3085.895s
+Finished. Client ID: 0. Start ID: 0. End ID: 250000.
+
+
+CLIENT 1
+Test: UPDATE DOCS. Number of docs: 250000. Batch size: 100.
+Summary for time per doc update [in ms]
+count    2500.000000
+mean       12.024136
+std         2.220206
+min         5.066739
+25%        10.459374
+50%        11.928844
+75%        13.435843
+90%        14.924127
+max        20.937181
+Name: time_per_doc, dtype: float64
+==============================
+Summary for total batch time (batches of 100 docs) [in ms]
+count    2500.000000
+mean     1202.413634
+std       222.020614
+min       506.673911
+25%      1045.937404
+50%      1192.884414
+75%      1343.584253
+90%      1492.412714
+max      2093.718148
+Name: total_time, dtype: float64
+Test total time taken: 3106.537s
+Finished. Client ID: 1. Start ID: 250000. End ID: 500000.
+
+
+CLIENT 2
+Test: UPDATE DOCS. Number of docs: 250000. Batch size: 100.
+Summary for time per doc update [in ms]
+count    2500.000000
+mean       12.048630
+std         2.242554
+min         4.127103
+25%        10.550876
+50%        11.945141
+75%        13.356346
+90%        14.893819
+max        22.928305
+Name: time_per_doc, dtype: float64
+==============================
+Summary for total batch time (batches of 100 docs) [in ms]
+count    2500.000000
+mean     1204.862998
+std       224.255448
+min       412.710338
+25%      1055.087556
+50%      1194.514099
+75%      1335.634605
+90%      1489.381937
+max      2292.830495
+Name: total_time, dtype: float64
+Test total time taken: 3111.075s
+Finished. Client ID: 2. Start ID: 500000. End ID: 750000.
+
+
+
+CLIENT 3
+Test: UPDATE DOCS. Number of docs: 250000. Batch size: 100.
+Summary for time per doc update [in ms]
+count    2500.000000
+mean       12.030097
+std         2.247141
+min         5.347077
+25%        10.478419
+50%        11.863268
+75%        13.381792
+90%        14.974429
+max        23.352322
+Name: time_per_doc, dtype: float64
+==============================
+Summary for total batch time (batches of 100 docs) [in ms]
+count    2500.000000
+mean     1203.009688
+std       224.714066
+min       534.707684
+25%      1047.841917
+50%      1186.326778
+75%      1338.179233
+90%      1497.442938
+max      2335.232185
+Name: total_time, dtype: float64
+Test total time taken: 3107.842s
+Finished. Client ID: 3. Start ID: 750000. End ID: 1000000.
+
 
 
 
 
 ===============================================================================================
-
-
-
-
-
 3. Update 1M docs with OLD upsert. update_documents. 4 clients (250k docs each).
 - Script used: ???
