@@ -50,7 +50,7 @@ res = mq.index("update-index").add_documents(
     non_tensor_fields=["color"],
     client_batch_size=client_batch_size,
     auto_refresh=False,
-    device="cpu",
+    device="cuda",
     use_existing_tensors=True
 )
 
