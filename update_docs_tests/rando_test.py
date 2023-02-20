@@ -23,11 +23,7 @@ print("Update Docs Test")
 print("Machine: My Machine")
 
 num_docs = int(sys.argv[1])
-client_id = int(sys.argv[2])
-
 client_batch_size = 100
-start_id = client_id * num_docs
-end_id = start_id + num_docs
 docs = [
     {
         "_id": str(i),
@@ -35,7 +31,7 @@ docs = [
         "fruit-tensor": fruits[i % 5],
         "name-tensor": names[i % 5],
     }
-    for i in range(start_id, end_id)
+    for i in range(num_docs)
 ]
 
 
@@ -49,7 +45,6 @@ except:
 # Set refresh to False
 # Client batched
 t0 = time.time()
-print(f"Starting test. Client ID: {client_id}. Number of docs: {num_docs}. Start ID: {start_id}. End ID: {end_id}. Batch size: {client_batch_size}.")
 res = mq.index("update-index").add_documents(
     docs,
     non_tensor_fields=["color"],
@@ -58,25 +53,3 @@ res = mq.index("update-index").add_documents(
     device="cuda",
     use_existing_tensors=True
 )
-
-# Record time taken for updating + how many. 
-batch_results = []
-for batch_raw_result in res:
-    
-    batch_results.append({
-        "total_time": batch_raw_result["processingTimeMs"],
-        "time_per_doc": batch_raw_result["processingTimeMs"] / client_batch_size
-    })
-
-# Interpret the results with pandas
-raw_df = pd.DataFrame(batch_results)
-print("=" * 30)
-print(f"Test: UPDATE DOCS. Number of docs: {num_docs}. Batch size: {client_batch_size}.")
-print(f"Summary for time per doc update [in ms]")
-pprint.pprint(raw_df["time_per_doc"].describe(percentiles=[.25, .5, .75, .9]))
-print("=" * 30)
-print(f"Summary for total batch time (batches of {client_batch_size} docs) [in ms]")
-pprint.pprint(raw_df["total_time"].describe(percentiles=[.25, .5, .75, .9]))
-
-t1 = time.time()
-print(f"Test total time taken: {(t1-t0):.3f}s")
