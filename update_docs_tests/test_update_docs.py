@@ -80,3 +80,4 @@ pprint.pprint(raw_df["total_time"].describe(percentiles=[.25, .5, .75, .9]))
 
 t1 = time.time()
 print(f"Test total time taken: {(t1-t0):.3f}s")
+print(f"Finished. Client ID: {client_id}. Start ID: {start_id}. End ID: {end_id}.")

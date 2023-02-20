@@ -1,0 +1,140 @@
+Speed Test 1
+1M docs.
+1. Add 1M new docs. 4 clients (250k docs each).
+- 2/20/23, 5pm.
+- Script used: test_update_docs.py
+
+CLIENT 0
+==============================
+Test: UPDATE DOCS. Number of docs: 250000. Batch size: 100.
+Summary for time per doc update [in ms]
+count    2500.000000
+mean       17.386505
+std         3.524959
+min         3.225396
+25%        17.895753
+50%        18.226730
+75%        18.614045
+90%        19.122831
+max        23.538908
+Name: time_per_doc, dtype: float64
+==============================
+Summary for total batch time (batches of 100 docs) [in ms]
+count    2500.000000
+mean     1738.650530
+std       352.495933
+min       322.539569
+25%      1789.575284
+50%      1822.673006
+75%      1861.404533
+90%      1912.283070
+max      2353.890820
+Name: total_time, dtype: float64
+Test total time taken: 4381.508s
+
+CLIENT 1
+==============================
+Test: UPDATE DOCS. Number of docs: 250000. Batch size: 100.
+Summary for time per doc update [in ms]
+count    2500.000000
+mean       17.859581
+std         1.942075
+min         7.164179
+25%        17.905704
+50%        18.236883
+75%        18.616080
+90%        19.084719
+max        23.546391
+Name: time_per_doc, dtype: float64
+==============================
+Summary for total batch time (batches of 100 docs) [in ms]
+count    2500.000000
+mean     1785.958116
+std       194.207457
+min       716.417948
+25%      1790.570387
+50%      1823.688315
+75%      1861.607968
+90%      1908.471897
+max      2354.639096
+Name: total_time, dtype: float64
+Test total time taken: 4499.987s
+
+
+CLIENT 2
+==============================
+Test: UPDATE DOCS. Number of docs: 250000. Batch size: 100.
+Summary for time per doc update [in ms]
+count    2500.000000
+mean       17.863564
+std         1.950465
+min         7.820686
+25%        17.882193
+50%        18.246847
+75%        18.630511
+90%        19.101495
+max        24.081549
+Name: time_per_doc, dtype: float64
+==============================
+Summary for total batch time (batches of 100 docs) [in ms]
+count    2500.000000
+mean     1786.356366
+std       195.046526
+min       782.068609
+25%      1788.219250
+50%      1824.684689
+75%      1863.051092
+90%      1910.149453
+max      2408.154911
+Name: total_time, dtype: float64
+Test total time taken: 4500.728s
+
+CLIENT 3
+==============================
+Test: UPDATE DOCS. Number of docs: 250000. Batch size: 100.
+Summary for time per doc update [in ms]
+count    2500.000000
+mean       17.735742
+std         2.440574
+min         4.970648
+25%        17.905745
+50%        18.228905
+75%        18.602930
+90%        19.101285
+max        24.707512
+Name: time_per_doc, dtype: float64
+==============================
+Summary for total batch time (batches of 100 docs) [in ms]
+count    2500.000000
+mean     1773.574173
+std       244.057406
+min       497.064797
+25%      1790.574488
+50%      1822.890467
+75%      1860.292970
+90%      1910.128486
+max      2470.751174
+Name: total_time, dtype: float64
+Test total time taken: 4466.847s
+
+
+
+
+
+===============================================================================================
+2. Update 1M docs with use_existing_tensors. 4 clients (250k docs each).
+- Script used: test_update_docs.py
+- 2/20/23, 6:30pm
+
+
+
+
+
+===============================================================================================
+
+
+
+
+
+3. Update 1M docs with OLD upsert. update_documents. 4 clients (250k docs each).
+- Script used: ???
