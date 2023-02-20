@@ -23,18 +23,13 @@ print("Update Docs Test")
 print("Machine: My Machine")
 
 num_docs = int(sys.argv[1])
-client_batch_size = 50
+client_batch_size = 100
 docs = [
     {
         "_id": str(i),
         "color": colors[i % 5],
-        "fruit": fruits[i % 5],
-        "name": names[i % 5],
-        "color-tensor": colors[i % 5],
         "fruit-tensor": fruits[i % 5],
         "name-tensor": names[i % 5],
-        # Add 18 fields
-        # 1 field is a vector field
     }
     for i in range(num_docs)
 ]
@@ -52,11 +47,11 @@ except:
 t0 = time.time()
 res = mq.index("update-index").add_documents(
     docs,
-    non_tensor_fields=["color", "fruit", "name"],
+    non_tensor_fields=["color"],
     client_batch_size=client_batch_size,
     auto_refresh=False,
     device="cpu",
-    use_existing_vectors=True
+    use_existing_tensors=True
 )
 
 # Record time taken for updating + how many. 
