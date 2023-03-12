@@ -1,0 +1,322 @@
+Speed Test 2
+12M docs.
+1. Add 12M new docs. 4 clients (3M docs each).
+- 2/21/23, 4:40am
+- Script used: test_update_docs.py
+
+CLIENT 0
+==============================
+Test: UPDATE DOCS. Number of docs: 3000000. Batch size: 100.
+Summary for time per doc update [in ms]
+count    30000.000000
+mean        15.124048
+std          5.826465
+min          4.104428
+25%          8.121613
+50%         18.326793
+75%         19.089345
+90%         20.083584
+max         40.766266
+Name: time_per_doc, dtype: float64
+==============================
+Summary for total batch time (batches of 100 docs) [in ms]
+count    30000.000000
+mean      1512.404777
+std        582.646471
+min        410.442772
+25%        812.161344
+50%       1832.679258
+75%       1908.934550
+90%       2008.358397
+max       4076.626612
+Name: total_time, dtype: float64
+Test total time taken: 45919.757s
+Finished. Client ID: 0. Start ID: 0. End ID: 3000000.
+
+
+CLIENT 1
+==============================
+Test: UPDATE DOCS. Number of docs: 3000000. Batch size: 100.
+Summary for time per doc update [in ms]
+count    30000.000000
+mean        18.336016
+std          3.040155
+min          8.766877
+25%         17.730506
+50%         18.590037
+75%         19.642356
+90%         21.901677
+max         44.827355
+Name: time_per_doc, dtype: float64
+==============================
+Summary for total batch time (batches of 100 docs) [in ms]
+count    30000.000000
+mean      1833.601618
+std        304.015480
+min        876.687707
+25%       1773.050580
+50%       1859.003675
+75%       1964.235599
+90%       2190.167704
+max       4482.735548
+Name: total_time, dtype: float64
+Test total time taken: 55572.110s
+Finished. Client ID: 1. Start ID: 3000000. End ID: 6000000.
+
+
+CLIENT 2
+==============================
+Test: UPDATE DOCS. Number of docs: 3000000. Batch size: 100.
+Summary for time per doc update [in ms]
+count    30000.000000
+mean        18.339196
+std          3.036226
+min         10.831987
+25%         17.741885
+50%         18.591475
+75%         19.644967
+90%         21.946169
+max         38.480177
+Name: time_per_doc, dtype: float64
+==============================
+Summary for total batch time (batches of 100 docs) [in ms]
+count    30000.000000
+mean      1833.919599
+std        303.622554
+min       1083.198732
+25%       1774.188493
+50%       1859.147542
+75%       1964.496651
+90%       2194.616945
+max       3848.017700
+Name: total_time, dtype: float64
+Test total time taken: 55565.919s
+Finished. Client ID: 2. Start ID: 6000000. End ID: 9000000.
+
+
+CLIENT 3
+==============================
+Test: UPDATE DOCS. Number of docs: 3000000. Batch size: 100.
+Summary for time per doc update [in ms]
+count    30000.000000
+mean        18.332741
+std          3.035238
+min          5.134338
+25%         17.749891
+50%         18.593040
+75%         19.637050
+90%         21.875329
+max         37.056847
+Name: time_per_doc, dtype: float64
+==============================
+Summary for total batch time (batches of 100 docs) [in ms]
+count    30000.000000
+mean      1833.274086
+std        303.523845
+min        513.433814
+25%       1774.989059
+50%       1859.304043
+75%       1963.705035
+90%       2187.532945
+max       3705.684659
+Name: total_time, dtype: float64
+Test total time taken: 55559.803s
+Finished. Client ID: 3. Start ID: 9000000. End ID: 12000000.
+
+
+
+
+
+===============================================================================================
+2. Update 12M docs with use_existing_tensors. 4 clients (3M docs each).
+- Script used: test_update_docs.py
+- 2/22/23, 8:25pm
+- All get throttled at around batch 14000
+CLIENT 0
+2023-02-22 18:11:11,350 logger:'marqo' INFO    add_documents batch 14431 Marqo processing: took 1.331s for Marqo to process & index 100 docs (server unbatched), for an average of 0.013s per doc.
+2023-02-22 18:11:13,017 logger:'marqo' INFO    add_documents batch 14432 roundtrip: took 1.667s to add 100 docs, for an average of 0.017s per doc.
+2023-02-22 18:11:13,017 logger:'marqo' INFO    add_documents batch 14432 Marqo processing: took 1.650s for Marqo to process & index 100 docs (server unbatched), for an average of 0.017s per doc.
+2023-02-22 18:11:15,090 logger:'marqo' INFO    add_documents batch 14433 roundtrip: took 2.072s to add 100 docs, for an average of 0.021s per doc.
+2023-02-22 18:11:15,090 logger:'marqo' INFO    add_documents batch 14433 Marqo processing: took 2.024s for Marqo to process & index 100 docs (server unbatched), for an average of 0.020s per doc.
+2023-02-22 18:11:16,211 logger:'marqo' INFO    add_documents batch 14434 roundtrip: took 1.121s to add 100 docs, for an average of 0.011s per doc.
+2023-02-22 18:11:16,211 logger:'marqo' INFO    add_documents batch 14434 Marqo processing: took 1.093s for Marqo to process & index 100 docs (server unbatched), for an average of 0.011s per doc.
+Traceback (most recent call last):
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 128, in __validate
+    request.raise_for_status()
+  File "/home/ubuntu/work/venvs/marqo_client_dev/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: http://localhost:8882/indexes/update-index/documents?refresh=false&device=cuda&use_existing_tensors=true&non_tensor_fields=color
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/work/public-code/update_docs_tests/test_update_docs.py", line 53, in <module>
+    res = mq.index("update-index").add_documents(
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 264, in add_documents
+    return self._generic_add_update_docs(
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 350, in _generic_add_update_docs
+    res = self._batch_request(
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 525, in _batch_request
+    results = [verbosely_add_docs(i, docs) for i, docs in enumerate(batched)]
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 525, in <listcomp>
+    results = [verbosely_add_docs(i, docs) for i, docs in enumerate(batched)]
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 482, in verbosely_add_docs
+    res = self.http.post(path=path_with_query_str, body=docs)
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 96, in post
+    return self.send_request(s.post, path, body, content_type)
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 74, in send_request
+    return self.__validate(response)
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 131, in __validate
+    convert_to_marqo_error_and_raise(response=request, err=err)
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 145, in convert_to_marqo_error_and_raise
+    raise MarqoWebError(message=response_msg, code=code, error_type=error_type,
+marqo.errors.MarqoWebError: MarqoWebError: MarqoWebError Error message: {'message': 'Marqo-OS received too many requests! Please try reducing the frequency of add_documents and update_documents calls.', 'code': 'too_many_requests', 'type': 'invalid_request', 'link': None}
+status_code: 429, type: invalid_request, code: too_many_requests, link:
+
+
+
+CLIENT 1
+2023-02-22 18:11:12,461 logger:'marqo' INFO    add_documents batch 14426 Marqo processing: took 1.734s for Marqo to process & index 100 docs (server unbatched), for an average of 0.017s per doc.
+2023-02-22 18:11:13,836 logger:'marqo' INFO    add_documents batch 14427 roundtrip: took 1.375s to add 100 docs, for an average of 0.014s per doc.
+2023-02-22 18:11:13,837 logger:'marqo' INFO    add_documents batch 14427 Marqo processing: took 1.349s for Marqo to process & index 100 docs (server unbatched), for an average of 0.013s per doc.
+2023-02-22 18:11:15,357 logger:'marqo' INFO    add_documents batch 14428 roundtrip: took 1.520s to add 100 docs, for an average of 0.015s per doc.
+2023-02-22 18:11:15,357 logger:'marqo' INFO    add_documents batch 14428 Marqo processing: took 1.490s for Marqo to process & index 100 docs (server unbatched), for an average of 0.015s per doc.
+Traceback (most recent call last):
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 128, in __validate
+    request.raise_for_status()
+  File "/home/ubuntu/work/venvs/marqo_client_dev/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: http://localhost:8882/indexes/update-index/documents?refresh=false&device=cuda&use_existing_tensors=true&non_tensor_fields=color
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/work/public-code/update_docs_tests/test_update_docs.py", line 53, in <module>
+    res = mq.index("update-index").add_documents(
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 264, in add_documents
+    return self._generic_add_update_docs(
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 350, in _generic_add_update_docs
+    res = self._batch_request(
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 525, in _batch_request
+    results = [verbosely_add_docs(i, docs) for i, docs in enumerate(batched)]
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 525, in <listcomp>
+    results = [verbosely_add_docs(i, docs) for i, docs in enumerate(batched)]
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 482, in verbosely_add_docs
+    res = self.http.post(path=path_with_query_str, body=docs)
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 96, in post
+    return self.send_request(s.post, path, body, content_type)
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 74, in send_request
+    return self.__validate(response)
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 131, in __validate
+    convert_to_marqo_error_and_raise(response=request, err=err)
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 145, in convert_to_marqo_error_and_raise
+    raise MarqoWebError(message=response_msg, code=code, error_type=error_type,
+marqo.errors.MarqoWebError: MarqoWebError: MarqoWebError Error message: {'message': 'Marqo-OS received too many requests! Please try reducing the frequency of add_documents and update_documents calls.', 'code': 'too_many_requests', 'type': 'invalid_request', 'link': None}
+status_code: 429, type: invalid_request, code: too_many_requests, link:
+
+
+CLIENT 2
+2023-02-22 18:11:10,698 logger:'marqo' INFO    add_documents batch 14424 Marqo processing: took 1.398s for Marqo to process & index 100 docs (server unbatched), for an average of 0.014s per doc.
+2023-02-22 18:11:12,439 logger:'marqo' INFO    add_documents batch 14425 roundtrip: took 1.742s to add 100 docs, for an average of 0.017s per doc.
+2023-02-22 18:11:12,439 logger:'marqo' INFO    add_documents batch 14425 Marqo processing: took 1.724s for Marqo to process & index 100 docs (server unbatched), for an average of 0.017s per doc.
+2023-02-22 18:11:13,482 logger:'marqo' INFO    add_documents batch 14426 roundtrip: took 1.043s to add 100 docs, for an average of 0.010s per doc.
+2023-02-22 18:11:13,483 logger:'marqo' INFO    add_documents batch 14426 Marqo processing: took 1.018s for Marqo to process & index 100 docs (server unbatched), for an average of 0.010s per doc.
+2023-02-22 18:11:15,092 logger:'marqo' INFO    add_documents batch 14427 roundtrip: took 1.610s to add 100 docs, for an average of 0.016s per doc.
+2023-02-22 18:11:15,092 logger:'marqo' INFO    add_documents batch 14427 Marqo processing: took 1.538s for Marqo to process & index 100 docs (server unbatched), for an average of 0.015s per doc.
+Traceback (most recent call last):
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 128, in __validate
+    request.raise_for_status()
+  File "/home/ubuntu/work/venvs/marqo_client_dev/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: http://localhost:8882/indexes/update-index/documents?refresh=false&device=cuda&use_existing_tensors=true&non_tensor_fields=color
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/work/public-code/update_docs_tests/test_update_docs.py", line 53, in <module>
+    res = mq.index("update-index").add_documents(
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 264, in add_documents
+    return self._generic_add_update_docs(
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 350, in _generic_add_update_docs
+    res = self._batch_request(
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 525, in _batch_request
+    results = [verbosely_add_docs(i, docs) for i, docs in enumerate(batched)]
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 525, in <listcomp>
+    results = [verbosely_add_docs(i, docs) for i, docs in enumerate(batched)]
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 482, in verbosely_add_docs
+    res = self.http.post(path=path_with_query_str, body=docs)
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 96, in post
+    return self.send_request(s.post, path, body, content_type)
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 74, in send_request
+    return self.__validate(response)
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 131, in __validate
+    convert_to_marqo_error_and_raise(response=request, err=err)
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 145, in convert_to_marqo_error_and_raise
+    raise MarqoWebError(message=response_msg, code=code, error_type=error_type,
+marqo.errors.MarqoWebError: MarqoWebError: MarqoWebError Error message: {'message': 'Marqo-OS received too many requests! Please try reducing the frequency of add_documents and update_documents calls.', 'code': 'too_many_requests', 'type': 'invalid_request', 'link': None}
+status_code: 429, type: invalid_request, code: too_many_requests, link:
+
+
+
+CLIENT 3
+2023-02-22 18:11:12,683 logger:'marqo' INFO    add_documents batch 14423 Marqo processing: took 1.671s for Marqo to process & index 100 docs (server unbatched), for an average of 0.017s per doc.
+2023-02-22 18:11:14,225 logger:'marqo' INFO    add_documents batch 14424 roundtrip: took 1.543s to add 100 docs, for an average of 0.015s per doc.
+2023-02-22 18:11:14,225 logger:'marqo' INFO    add_documents batch 14424 Marqo processing: took 1.513s for Marqo to process & index 100 docs (server unbatched), for an average of 0.015s per doc.
+2023-02-22 18:11:15,734 logger:'marqo' INFO    add_documents batch 14425 roundtrip: took 1.508s to add 100 docs, for an average of 0.015s per doc.
+2023-02-22 18:11:15,734 logger:'marqo' INFO    add_documents batch 14425 Marqo processing: took 1.492s for Marqo to process & index 100 docs (server unbatched), for an average of 0.015s per doc.
+Traceback (most recent call last):
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 128, in __validate
+    request.raise_for_status()
+  File "/home/ubuntu/work/venvs/marqo_client_dev/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: http://localhost:8882/indexes/update-index/documents?refresh=false&device=cuda&use_existing_tensors=true&non_tensor_fields=color
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/work/public-code/update_docs_tests/test_update_docs.py", line 53, in <module>
+    res = mq.index("update-index").add_documents(
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 264, in add_documents
+    return self._generic_add_update_docs(
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 350, in _generic_add_update_docs
+    res = self._batch_request(
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 525, in _batch_request
+    results = [verbosely_add_docs(i, docs) for i, docs in enumerate(batched)]
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 525, in <listcomp>
+    results = [verbosely_add_docs(i, docs) for i, docs in enumerate(batched)]
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/index.py", line 482, in verbosely_add_docs
+    res = self.http.post(path=path_with_query_str, body=docs)
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 96, in post
+    return self.send_request(s.post, path, body, content_type)
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 74, in send_request
+    return self.__validate(response)
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 131, in __validate
+    convert_to_marqo_error_and_raise(response=request, err=err)
+  File "/home/ubuntu/work/marqo_main/py-marqo/src/marqo/_httprequests.py", line 145, in convert_to_marqo_error_and_raise
+    raise MarqoWebError(message=response_msg, code=code, error_type=error_type,
+marqo.errors.MarqoWebError: MarqoWebError: MarqoWebError Error message: {'message': 'Marqo-OS received too many requests! Please try reducing the frequency of add_documents and update_documents calls.', 'code': 'too_many_requests', 'type': 'invalid_request', 'link': None}
+status_code: 429, type: invalid_request, code: too_many_requests, link:
+
+
+
+
+===============================================================================================
+3. Update 12M docs with OLD upsert. update_documents. 4 clients (3M docs each).
+- Script used: test_old_upsert.py
+- 
+
+CLIENT 0
+==============================
+Test: OLD UPSERT UPDATE DOCS. Number of docs: 250000. Batch size: 100.
+
+
+
+CLIENT 1
+
+
+
+CLIENT 2
+
+
+
+CLIENT 3

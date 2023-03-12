@@ -108,7 +108,7 @@ while num_attempts <= attempt_limit:
 
 t1 = time.time()
 time_taken = f"{(t1-t0):.3f}"
-now = datetime.datetime.now()
+now = datetime.date.now()
 docs_indexed = total_doc_num - len(data)
 
 # Final results
