@@ -5,6 +5,8 @@ Throughput and latency test
 Do first:
 1. Restart EC2 instance
 2. Ensure no docker containers are running
+
+1 argument: num docs
 """
 
 import marqo

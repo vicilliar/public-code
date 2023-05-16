@@ -4,3 +4,5 @@ throttling_tests/test_data/*
 throttling_tests/simplewiki/test_results/*
 
 *.json
+
+zipping/marqo-usage-updater/*
