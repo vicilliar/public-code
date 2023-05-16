@@ -1,7 +1,7 @@
 export MY_MODEL_LIST='[
     "hf/all_datasets_v4_MiniLM-L6",
     {
-        "model": 'generic-clip-test-model-1',
+        "model": "generic-clip-test-model-1",
         "model_properties": {
             "name": "ViT-B-32-quickgelu",
             "dimensions": 512,
