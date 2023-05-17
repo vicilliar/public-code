@@ -14,7 +14,7 @@ settings = {
     },
 }
 try:
-    mq.delete_index("my-own-clip", settings_dict=settings)
+    mq.delete_index("my-own-clip")
 except:
     pass
 
