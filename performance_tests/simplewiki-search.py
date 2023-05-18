@@ -17,7 +17,8 @@ def random_query():
 
 index_name = "marqo-simplewiki-demo-all"
 
-mq.index(index_name).get_stats()
+print('SIMPLE WIKI INDEX COUNT')
+print(mq.index(index_name).get_stats())
 # {'numberOfDocuments': 112859}
 
 print('MARQO INFO')
