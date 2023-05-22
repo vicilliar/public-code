@@ -42,7 +42,7 @@ def test_run():
     }
 
     print(f"Attempting to rerun marqo with custom model {open_clip_model_object['model']}")
-    utilities.rerun_marqo_with_env_vars(
+    rerun_marqo_with_env_vars(
         env_vars = f"-e MARQO_MODELS_TO_PRELOAD=[{json.dumps(open_clip_model_object)}]"
     )
 
