@@ -25,7 +25,7 @@ docker rm -f marqo;
 #docker run -d "${args[@]}"
 
 # TODO put this back (remove models to preload)
-docker run --name marqo --gpus all --privileged -p 8882:8882 --add-host host.docker.internal:host-gateway ${2:+"$2"} "$1"
+docker run --name marqo --gpus all --privileged -p 8882:8882 --add-host host.docker.internal:host-gateway ${2:+"$2"} "$1" &
 
 # Follow the logs of the Docker container in the background and capture its PID
 docker logs -f marqo &
@@ -36,6 +36,7 @@ set +x
 until [[ $(curl -v --silent --insecure http://localhost:8882 2>&1 | grep Marqo) ]]; do
     sleep 0.1;
 done;
-
+set -x
 # Kill the `docker logs` command (so subprocess does not wait for it)
 kill $LOGS_PID
+set +x
