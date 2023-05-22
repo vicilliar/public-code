@@ -21,19 +21,13 @@ def rerun_marqo_with_env_vars(env_vars: str = ""):
         env_vars                            # arg $2 in script
         ], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True)
     
-    while True:
-        # Read output from pipe in realtime
-        output = run_process.stdout.readline()
-        
-        # Stop if the process is done and there's no more output
-        if output == '' and run_process.poll() is not None:
-            break
-
-        if output:
-            print(output.strip())
+    # Read and print the output line by line (in real time)
+    for line in run_process.stdout:
+        print(line, end='')
     
+    # Wait for the process to complete
     run_process.wait()
-    print("Marqo restart completed.")
+    return f"{output_1}\n{run_process.stdout}"
 
 def test_run():
     # Rerun marqo with new custom model
@@ -52,7 +46,7 @@ def test_run():
     #    env_vars = f"-e MARQO_MODELS_TO_PRELOAD=[{json.dumps(open_clip_model_object)}]"
     #)
     rerun_marqo_with_env_vars(
-        env_vars = f"-e MARQO_MODELS_TO_PRELOAD=[]"
+        env_vars = f"-e MARQO_MODELS_TO_PRELOAD=[{json.dumps(open_clip_model_object)}]"
     )
 
 
