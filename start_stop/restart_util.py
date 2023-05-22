@@ -13,7 +13,7 @@ def rerun_marqo_with_env_vars(env_vars: str = ""):
 
         Returns the console output of all the subprocess calls
     """
-
+    output_1 = "killed marqo or smth"
     run_process = subprocess.Popen([
         "bash",                             # command: run
         "run_marqo_cuda.sh",                # script to run
@@ -45,9 +45,10 @@ def test_run():
     #rerun_marqo_with_env_vars(
     #    env_vars = f"-e MARQO_MODELS_TO_PRELOAD=[{json.dumps(open_clip_model_object)}]"
     #)
-    rerun_marqo_with_env_vars(
-        env_vars = f"-e MARQO_MODELS_TO_PRELOAD=[{json.dumps(open_clip_model_object)}]"
+    output = rerun_marqo_with_env_vars(
+        env_vars = f"-e MARQO_MODELS_TO_PRELOAD=[]"
     )
+    print(output)
 
 
     # check preloaded models (should be custom model)
