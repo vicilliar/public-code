@@ -49,7 +49,7 @@ def test_run():
     #)
     output = rerun_marqo_with_env_vars(
         env_vars = [
-            '-e', f"MARQO_MODELS_TO_PRELOAD={json.dumps(open_clip_model_object)}",
+            '-e', f"MARQO_MODELS_TO_PRELOAD=[{json.dumps(open_clip_model_object)}]",
             '-e', f"MARQO_MAX_NUMBER_OF_REPLICAS=5"
         ]
     )
