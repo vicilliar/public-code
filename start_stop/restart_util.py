@@ -50,15 +50,18 @@ def test_run():
     output = rerun_marqo_with_env_vars(
         env_vars = [
             '-e', f"MARQO_MODELS_TO_PRELOAD=[{json.dumps(open_clip_model_object)}]",
-            '-e', f"MARQO_MAX_NUMBER_OF_REPLICAS=5"
+            '-e', f"MARQO_MAX_NUMBER_OF_REPLICAS=5",
+            '-e', f'MARQO_LOG_LEVEL="debug"',
+            '-e', f'MARQO_ENABLE_THROTTLING=TRUE'
         ]
     )
-    # print(output)
+    print(output)
 
 
     # check preloaded models (should be custom model)
     custom_models = ["open-clip-1"]
-    res = self.client.get_loaded_models()
+    mq = marqo.Client()
+    res = mq.get_loaded_models()
     assert set([item["model_name"] for item in res["models"]]) == set(custom_models)
 
 test_run()
