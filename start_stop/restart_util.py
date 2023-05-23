@@ -60,7 +60,7 @@ def test_run():
 
     # check preloaded models (should be custom model)
     custom_models = ["open-clip-1"]
-    mq = marqo.Client()
+    mq = Client()
     res = mq.get_loaded_models()
     assert set([item["model_name"] for item in res["models"]]) == set(custom_models)
 
