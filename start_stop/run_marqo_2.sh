@@ -8,7 +8,7 @@ docker rm -f marqo;
 MARQO_DOCKER_IMAGE="$1"
 shift
 
-docker run -d --name marqo --gpus all --privileged -p 8882:8882 --add-host host.docker.internal:host-gateway ${@:+"$@"} "$MARQO_DOCKER_IMAG"
+docker run -d --name marqo --gpus all --privileged -p 8882:8882 --add-host host.docker.internal:host-gateway ${@:+"$@"} "$MARQO_DOCKER_IMAGE"
 
 # Follow the logs of the Docker container in the background and capture its PID
 docker logs -f marqo &
