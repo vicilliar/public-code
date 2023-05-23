@@ -8,6 +8,8 @@ docker rm -f marqo;
 MARQO_DOCKER_IMAGE="$1"
 shift
 
+# -d detaches docker from process (so subprocess does not wait for it)
+# ${@:+"$@"} adds ALL args (past $1) if any exist.
 docker run -d --name marqo --gpus all --privileged -p 8882:8882 --add-host host.docker.internal:host-gateway ${@:+"$@"} "$MARQO_DOCKER_IMAGE"
 
 # Follow the logs of the Docker container in the background and capture its PID
@@ -20,6 +22,7 @@ until [[ $(curl -v --silent --insecure http://localhost:8882 2>&1 | grep Marqo) 
     sleep 0.1;
 done;
 set -x
+
 # Kill the `docker logs` command (so subprocess does not wait for it)
 kill $LOGS_PID
 set +x
