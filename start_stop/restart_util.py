@@ -51,7 +51,7 @@ def test_run():
         env_vars = [
             '-e', f"MARQO_MODELS_TO_PRELOAD=[{json.dumps(open_clip_model_object)}]",
             '-e', f"MARQO_MAX_NUMBER_OF_REPLICAS=5",
-            '-e', f'MARQO_LOG_LEVEL="debug"',
+            '-e', f'MARQO_LOG_LEVEL=debug',
             '-e', f'MARQO_ENABLE_THROTTLING=TRUE'
         ]
     )
