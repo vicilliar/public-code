@@ -5,14 +5,10 @@
 set -x
 docker rm -f marqo;
 
-marqo_docker_image="$1"
+MARQO_DOCKER_IMAGE="$1"
 shift
 
-if [[ -z "$@" ]]; then
-    docker run marqo "$marqo_docker_image"
-else
-    docker run marqo "$@" "$marqo_docker_image"
-fi
+docker run -d --name marqo --gpus all --privileged -p 8882:8882 --add-host host.docker.internal:host-gateway ${@:+"$@"} "$MARQO_DOCKER_IMAG"
 
 # Follow the logs of the Docker container in the background and capture its PID
 docker logs -f marqo &
