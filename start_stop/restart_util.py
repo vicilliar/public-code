@@ -6,20 +6,22 @@ from marqo import Client
 import pprint
 import json
 
-def rerun_marqo_with_env_vars(env_vars: str = ""):
+def rerun_marqo_with_env_vars(env_vars: list = []):
     """
-        Given a string of env vars, stop and rerun Marqo using the start script appropriate
+        Given a list of env vars, stop and rerun Marqo using the start script appropriate
         for the current test config
 
         Returns the console output of all the subprocess calls
     """
     output_1 = "killed marqo or smth"
     run_process = subprocess.Popen([
-        "bash",                             # command: run
-        "run_marqo_cuda.sh",                # script to run
-        "marqo_docker_0",                   # arg $1 in script
-        env_vars                            # arg $2 in script
-        ], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True)
+        "bash",                         # command: run
+        "run_marqo_2.sh",               # script to run
+        "marqo_docker_0",               # arg $1 in script                           
+        ] + env_vars,                   # args $2 onwards
+    stdout=subprocess.PIPE, 
+    stderr=subprocess.STDOUT, 
+    universal_newlines=True)
     
     # Read and print the output line by line (in real time)
     for line in run_process.stdout:
@@ -46,9 +48,12 @@ def test_run():
     #    env_vars = f"-e MARQO_MODELS_TO_PRELOAD=[{json.dumps(open_clip_model_object)}]"
     #)
     output = rerun_marqo_with_env_vars(
-        env_vars = f"-e MARQO_MODELS_TO_PRELOAD=[]"
+        env_vars = [
+            '-e', f"MARQO_MODELS_TO_PRELOAD={json.dumps(open_clip_model_object)}",
+            '-e', f"MARQO_MAX_NUMBER_OF_REPLICAS=5"
+        ]
     )
-    print(output)
+    # print(output)
 
 
     # check preloaded models (should be custom model)
