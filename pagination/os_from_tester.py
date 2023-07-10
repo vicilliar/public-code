@@ -15,6 +15,7 @@ except:
 
 # Index set number of documents
 # 100 random words
+mq.create_index("my-first-index")
 vocab_source = "https://www.mit.edu/~ecprice/wordlist.10000"
 vocab = requests.get(vocab_source).text.splitlines()
 num_docs = 100
